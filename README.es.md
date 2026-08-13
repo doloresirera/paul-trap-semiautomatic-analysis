@@ -127,13 +127,7 @@ Se analizaron dos conjuntos de partículas con centro confiable:
 | | Video 1 | Video 2 |
 |---|---|---|
 | N (trazas) | 86 | 113 |
-| c | 0,533 ± 0,069 | 0,524 ± 0,060 |
+| c | 0,53 ± 0,07 | 0,52 ± 0,06 |
 | Q/m [C/kg] | (8,7 ± 1,0)×10⁻⁴ | (8,5 ± 1,0)×10⁻⁴ |
 | Error de medición | 13 % | 11 % |
-| σ (dispersión de c_i) | 0,087 | 0,076 |
-
-Ambos valores de Q/m caen en el rango esperado para licopodio. En los dos
-conjuntos, la dispersión de los c_i (σ = 0,087 y 0,076) es mayor que el error
-de medición (13 % y 11 %, es decir ≈ 0,07 y 0,06 en unidades de c). Descontando
-el error en cuadratura, queda una dispersión intrínseca de ≈ 0,05, lo que
-sugiere una variación real de la carga entre partículas de un mismo conjunto.
+| σ (dispersión de c_i) | 0,09 | 0,08 |
