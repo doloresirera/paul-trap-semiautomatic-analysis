@@ -11,6 +11,10 @@ Facultad de Ciencias Exactas y Naturales (FCEN), Universidad de Buenos Aires (UB
 > terminada. El código y el enfoque se comparten como referencia para quien
 > quiera abordar un problema similar. Los parámetros están ajustados a nuestro
 > montaje experimental y deben readaptarse a cada caso (ver más abajo).
+>
+#**Extensión del experimento**
+
+Como proyecto final del curso "Investigación asistida por inteligencia artificial: aplicación en ondas gravitacionales" dictado por Matías Zaldarriaga en el segundo cuatrimestre del 2026, se utilizará el material de trabajo de este experimento para, en distinto niveles, probar cómo la IA reproduce o mejora el trabajo realizado.
 
 ## Idea del método
 
