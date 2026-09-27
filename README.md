@@ -12,6 +12,10 @@ Aires (UBA).
 > and approach are shared as a reference for anyone tackling a similar problem.
 > The parameters are tuned to our experimental setup and must be re-adapted to
 > each case (see below).
+>
+## **Project extension**
+
+As the final project for the course "AI-assisted research: application to gravitational waves," taught by Matías Zaldarriaga in the second semester of 2026, the material from this experiment is used to test, at different levels, how AI reproduces or improves on the work carried out.
 
 ## The idea behind the method
 
