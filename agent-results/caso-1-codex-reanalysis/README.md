@@ -1,4 +1,4 @@
-# Codex reanalysis
+# Case 1 — Codex reanalysis
 
 Independent reanalysis of the 11 experimental videos supplied with the lab
 report. See [REPORTE_REANALISIS.md](REPORTE_REANALISIS.md) for the results,

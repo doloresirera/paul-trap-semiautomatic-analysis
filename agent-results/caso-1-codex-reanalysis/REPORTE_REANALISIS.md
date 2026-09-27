@@ -1,4 +1,4 @@
-# Reanálisis de la micromoción en la trampa de Paul
+# Caso 1 — Reanálisis de la micromoción en la trampa de Paul
 
 ## Resultado principal
 
@@ -72,4 +72,3 @@ La incertidumbre de `Q/m` incluye además `r0` y `V`. El término instrumental r
 - `diagnostico_dos_videos.png`: histogramas y gráficos `L` contra `R` de los dos archivos comparados con el informe.
 - `overview_videos.png`: tres frames de cada video.
 - `analyze_trap.py`: análisis reproducible con semilla fija.
-
