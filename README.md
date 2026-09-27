@@ -166,3 +166,9 @@ is a model prediction rather than an independent spectral identification. The
 report explicitly separates statistical error from systematic uncertainties
 due to exposure time, electrode geometry, voltage convention, and camera
 projection.
+
+## Case 3: automatic exploratory reanalysis
+
+The [`caso 3/`](caso%203/) folder contains an independent implementation built from the written method and the raw videos. It includes the physical and methodological context, Python analysis code, detected-streak tables, diagnostic plots, and a final HTML report. The raw videos are not stored in the repository.
+
+This run uses reproducible automatic rules for streak selection instead of the frame-by-frame human validation required by the original semi-automatic workflow. None of the videos passed all the predefined fit and center-stability criteria, so the per-video Q/m values are reported only as diagnostics and no combined physical result is claimed. Manual review of the proposed detections would be required to complete a faithful semi-automatic reanalysis.

@@ -170,3 +170,9 @@ cuadrupolar ideal, `|Q|/m = 6,65×10⁻⁴ C kg⁻¹`. La frecuencia secular de
 independiente. El reporte distingue explícitamente los errores estadísticos de
 las incertidumbres sistemáticas asociadas con la exposición, la geometría, la
 convención del voltaje y la proyección de la cámara.
+
+## Caso 3: reanálisis exploratorio automático
+
+La carpeta [`caso 3/`](caso%203/) contiene una implementación independiente construida a partir del método escrito y los videos crudos. Incluye el contexto físico y metodológico, el código Python, las tablas de trazas detectadas, las figuras diagnósticas y un informe HTML final. Los videos crudos no se almacenan en el repositorio.
+
+Esta ejecución usa reglas automáticas reproducibles para seleccionar trazas, en lugar de la validación humana cuadro por cuadro que requiere el procedimiento semiautomático original. Ningún video superó todos los criterios predefinidos de ajuste y estabilidad del centro; por eso los valores de Q/m por video se presentan solamente como diagnósticos y no se informa un resultado físico combinado. Para completar una reproducción fiel del método semiautomático sería necesaria la revisión manual de las detecciones propuestas.
