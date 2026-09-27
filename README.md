@@ -146,3 +146,6 @@ This is an independent implementation rather than a replacement for the
 original semi-automatic analysis. In particular, it documents differences
 caused by manual streak correction, frame-level resampling, and propagation of
 instrumental uncertainties.
+
+A didactic explanation of the errors, assumptions, and improvements is
+available as an [HTML document](agent-results/caso-1-codex-reanalysis/CASO_1_ERRORES_Y_MEJORAS.html).

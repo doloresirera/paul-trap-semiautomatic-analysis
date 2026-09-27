@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caso 1 — Errores, supuestos y mejoras</title>
+  <style>
+    :root { --ink:#172033; --muted:#586174; --paper:#f7f5ef; --card:#fff;
+      --blue:#185fa5; --green:#247a5a; --orange:#b65c16; --red:#a33a3a;
+      --line:#d9d6cc; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:17px/1.62 Georgia,serif; }
+    header { padding:5rem max(6vw,1.25rem) 4rem; color:#fff;
+      background:linear-gradient(130deg,#102943,#185fa5 58%,#2b8a6e); }
+    header div, main { max-width:1050px; margin:auto; }
+    h1 { margin:0 0 .8rem; max-width:850px; font:700 clamp(2.2rem,5vw,4.5rem)/1.04 Arial,sans-serif; }
+    header p { max-width:780px; margin:0; font-size:1.2rem; opacity:.92; }
+    main { padding:3.5rem max(5vw,1.15rem) 6rem; }
+    h2 { margin:3.6rem 0 1rem; font:700 2rem/1.2 Arial,sans-serif; }
+    h3 { margin:0 0 .55rem; font:700 1.2rem/1.25 Arial,sans-serif; }
+    p { margin:.5rem 0 1rem; }
+    .lead { font-size:1.22rem; max-width:850px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.1rem; }
+    .card { padding:1.35rem; background:var(--card); border:1px solid var(--line); border-radius:14px;
+      box-shadow:0 5px 18px #16243a0b; }
+    .tag { display:inline-block; margin-bottom:.75rem; padding:.18rem .55rem; border-radius:999px;
+      color:#fff; background:var(--blue); font:700 .76rem Arial,sans-serif; letter-spacing:.04em; text-transform:uppercase; }
+    .tag.orange { background:var(--orange); } .tag.green { background:var(--green); }
+    .tag.red { background:var(--red); }
+    .formula { overflow:auto; margin:1.2rem 0; padding:1.1rem; border-left:5px solid var(--blue);
+      background:#eef5fb; font:1.08rem/1.6 "Cambria Math",Georgia,serif; }
+    table { width:100%; border-collapse:collapse; margin:1.25rem 0; background:#fff; }
+    th,td { padding:.72rem .8rem; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:#e9eef3; font-family:Arial,sans-serif; }
+    .flow { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:.6rem; align-items:center; margin:1.4rem 0; }
+    .flow div { padding:1rem; text-align:center; border-radius:10px; background:#fff; border:1px solid var(--line); }
+    .arrow { border:0!important; background:transparent!important; font:700 1.5rem Arial!important; }
+    .callout { margin:1.4rem 0; padding:1.25rem 1.4rem; border-radius:12px; background:#fff4df; border:1px solid #e7c990; }
+    .good { background:#eaf7f1; border-color:#9bcdb9; }
+    code { padding:.12rem .3rem; border-radius:4px; background:#eceae4; }
+    img { display:block; width:100%; margin:1.25rem auto; border:1px solid var(--line); border-radius:12px; }
+    .small { color:var(--muted); font-size:.92rem; }
+    footer { margin-top:4rem; padding-top:1.3rem; border-top:1px solid var(--line); color:var(--muted); }
+    @media(max-width:720px){ .flow{grid-template-columns:1fr}.arrow{transform:rotate(90deg)} table{font-size:.88rem} }
+  </style>
+</head>
+<body>
+<header><div>
+  <p class="tag">Caso 1 · revisión metodológica</p>
+  <h1>Qué podía salir mal, qué significa y cómo lo cambiaría</h1>
+  <p>Una guía didáctica sobre incertidumbres, selección de trazas, independencia estadística y la afirmación de dispersión intrínseca en la medición de Q/m.</p>
+</div></header>
+
+<main>
+  <p class="lead">El resultado central del informe es razonable y el reanálisis obtiene valores compatibles. Los puntos siguientes no invalidan el experimento: muestran dónde una conclusión es más fuerte que la evidencia disponible y cómo hacer que el análisis sea más reproducible.</p>
+
+  <h2>1. Medición, dispersión y error no son lo mismo</h2>
+  <div class="grid">
+    <section class="card"><span class="tag">Medición</span><h3>El valor de c</h3><p>Para cada traza se calcula <i>cᵢ=Lᵢ/Rᵢ</i>. Luego hace falta un estimador del conjunto: media, mediana o un ajuste global.</p></section>
+    <section class="card"><span class="tag orange">Dispersión</span><h3>Cuánto varían los cᵢ</h3><p>La desviación estándar describe el ancho observado. Mezcla diferencias físicas, errores de segmentación, centro incierto y repetición de partículas.</p></section>
+    <section class="card"><span class="tag green">Incertidumbre</span><h3>Qué tan bien conocemos c</h3><p>Debe reflejar cuánto cambiaría el resultado al repetir razonablemente el procesamiento y la medición instrumental.</p></section>
+  </div>
+  <div class="callout"><b>Idea clave:</b> que los puntos estén muy dispersos no demuestra automáticamente que las partículas tengan valores físicos distintos de Q/m.</div>
+
+  <h2>2. Propagación de incertidumbres de Q/m</h2>
+  <p>La relación utilizada es:</p>
+  <div class="formula">Q/m = c · r₀² · Ω² / (4V), &nbsp;&nbsp; con Ω=2πf.</div>
+  <p>Si las variables son independientes, la propagación relativa de primer orden es:</p>
+  <div class="formula">(σ<sub>Q/m</sub> /(Q/m))² = (σ<sub>c</sub>/c)² + (2σ<sub>r₀</sub>/r₀)² + (2σ<sub>f</sub>/f)² + (σ<sub>V</sub>/V)².</div>
+  <p>En el informe, para el grupo 1, <i>σc/c ≈ 0,069/0,533 = 12,9 %</i>. Además, el radio aporta <i>2×0,50/8,90 = 11,2 %</i> y la tensión aporta <i>24/1175 = 2,0 %</i>. Sin incluir una incertidumbre de frecuencia:</p>
+  <div class="formula">σ<sub>rel</sub> ≈ √(0,129² + 0,112² + 0,020²) = 17,2 %.<br>
+  Para Q/m = 8,7×10⁻⁴ C/kg, esto equivale aproximadamente a 1,5×10⁻⁴ C/kg.</div>
+  <p>El informe publica ±1,0×10⁻⁴ C/kg, cerca de 11,5 %. Ese número es menor que el error relativo de <i>c</i> por sí solo y no puede resultar de propagar simultáneamente todos los términos indicados.</p>
+  <div class="grid">
+    <section class="card"><span class="tag red">Problema</span><p>No queda explícito qué incertidumbres entraron en el resultado final de Q/m. El redondeo tampoco explica la diferencia.</p></section>
+    <section class="card"><span class="tag green">Cambio</span><p>Propagué juntas la incertidumbre del análisis de imagen y las de <i>r₀</i> y <i>V</i>. También guardé cada contribución por separado en el CSV.</p></section>
+  </div>
+
+  <h2>3. ¿Se demostró una dispersión intrínseca?</h2>
+  <p>El informe usa:</p>
+  <div class="formula">σ²<sub>observada</sub> = σ²<sub>medición</sub> + σ²<sub>intrínseca</sub></div>
+  <p>y despeja <i>σintrínseca≈0,053</i> para el grupo 1. La ecuación es válida en un modelo particular: errores gaussianos, independientes, sin sesgo y con una varianza de medición conocida correctamente. El problema no es la resta cuadrática; es asumir que esas condiciones ya fueron verificadas.</p>
+  <div class="flow"><div>Dispersión observada</div><div class="arrow">→</div><div>¿error de medición bien modelado?</div><div class="arrow">→</div><div>recién entonces: dispersión física</div></div>
+  <p>En estos videos existen fuentes adicionales:</p>
+  <ul>
+    <li>una misma partícula aparece en muchos frames;</li>
+    <li>el umbral puede cortar una traza de manera sesgada, no gaussiana;</li>
+    <li>la incertidumbre del centro es común a muchas trazas y genera correlaciones;</li>
+    <li>la selección manual favorece ciertas trazas;</li>
+    <li>pueden existir diferencias entre frames por iluminación o movimiento colectivo.</li>
+  </ul>
+  <div class="callout good"><b>Conclusión más prudente:</b> la dispersión observada es compatible con heterogeneidad física, pero estos datos no la separan de manera concluyente de la segmentación, las correlaciones y la repetición de partículas.</div>
+
+  <h2>4. El problema de contar trazas como datos independientes</h2>
+  <p>El informe informa 86 y 113 trazas. Eso no significa necesariamente 86 y 113 partículas ni igual cantidad de observaciones independientes. Si una espora aparece en diez frames, aporta diez valores correlacionados.</p>
+  <table>
+    <thead><tr><th>Remuestreo</th><th>Qué supone</th><th>Consecuencia</th></tr></thead>
+    <tbody>
+      <tr><td>Bootstrap por traza</td><td>Cada traza es independiente.</td><td>Puede subestimar el error.</td></tr>
+      <tr><td>Bootstrap por frame</td><td>Conserva juntas las trazas de un cuadro.</td><td>Mejora usada en el reanálisis.</td></tr>
+      <tr><td>Bootstrap por partícula</td><td>Requiere tracking entre frames.</td><td>Opción preferible para estudiar variabilidad física.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>5. La intervención manual y el umbral</h2>
+  <p>El informe dice que se aplicó un umbral fijo de 40 y después una persona “acepta, descarta o corrige”. En el frame 460 del video de las 8.34.49, que coincide con la Figura 5, la traza dibujada como continua en la interfaz queda dividida en varios componentes al aplicar literalmente el umbral 40. La corrección manual fue entonces parte sustancial de la medición.</p>
+  <div class="grid">
+    <section class="card"><span class="tag red">Riesgo</span><p>Dos personas pueden unir extremos diferentes o aceptar conjuntos distintos. Mantener fijo el umbral no elimina ese sesgo.</p></section>
+    <section class="card"><span class="tag green">Cambio</span><p>Usé un umbral auxiliar de 26 para recuperar continuidad, un área mínima adaptada y una línea media cuadrática. La regla queda escrita y se aplica igual a todos los videos.</p></section>
+  </div>
+  <p>La mediana de <i>cᵢ</i> sustituyó a la media porque los fragmentos residuales producen principalmente valores bajos y una cola asimétrica. La mediana reduce esa influencia sin elegir trazas mirando el resultado deseado.</p>
+
+  <h2>6. El centro de la trampa: qué sí se reprodujo</h2>
+  <p>Con todas las detecciones automáticas, el ajuste libre del centro encuentra mínimos espurios: puede mover el centro lejos y compensarlo cambiando la pendiente. La selección manual original no está guardada, así que no es posible reconstruir exactamente el conjunto que generó los centros publicados.</p>
+  <div class="callout"><b>Transparencia:</b> para comparar c y Q/m utilicé el promedio de los dos centros publicados, (286,85; 76,05) px. Por eso reproduje los valores de c de forma <i>condicional al centro del informe</i>, no como determinación ciega e independiente.</div>
+
+  <h2>7. Qué haría en una versión más fuerte</h2>
+  <ol>
+    <li>Guardar las selecciones manuales originales como máscaras o tablas, junto con el identificador de frame.</li>
+    <li>Hacer tracking de cada espora para reconocer mediciones repetidas.</li>
+    <li>Ajustar un modelo jerárquico: errores de traza, variaciones por frame y un valor por partícula.</li>
+    <li>Estimar simultáneamente centro y c con validación cruzada entre bloques temporales.</li>
+    <li>Hacer análisis de sensibilidad predefinido para umbral, filtros y definición de longitud.</li>
+    <li>Reportar por separado incertidumbre estadística, sistemática e instrumental.</li>
+  </ol>
+
+  <h2>8. Resultado comparativo</h2>
+  <img src="resultados_por_video.png" alt="Resultados de c y Q/m por video">
+  <p class="small">Los dos archivos usados para la comparación principal dieron c=0,528±0,022 y c=0,529±0,035, compatibles con 0,533±0,069 y 0,524±0,060 del informe.</p>
+  <img src="diagnostico_dos_videos.png" alt="Distribuciones de c y relación entre L y R">
+
+  <footer>Documento generado para el Caso 1 del repositorio de evaluación de agentes de IA. Acompaña, pero no sustituye, el informe experimental ni el reporte técnico del reanálisis.</footer>
+</main>
+</body>
+</html>

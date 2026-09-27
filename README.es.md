@@ -148,3 +148,6 @@ Este reanálisis es una implementación independiente y no reemplaza el análisi
 semiautomático original. En particular, documenta las diferencias producidas
 por la corrección manual de trazas, el remuestreo por frame y la propagación de
 incertidumbres instrumentales.
+
+La explicación didáctica de los errores, supuestos y mejoras está disponible
+como [documento HTML](agent-results/caso-1-codex-reanalysis/CASO_1_ERRORES_Y_MEJORAS.html).
