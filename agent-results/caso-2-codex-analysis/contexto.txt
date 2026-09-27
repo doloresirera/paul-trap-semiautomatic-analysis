@@ -1,0 +1,15 @@
+Analizamos un experimento de física. Tenemos una trampa de Paul anular: un dispositivo que confina partículas cargadas mediante un campo eléctrico oscilante de radiofrecuencia aplicado entre electrodos. El campo genera un punto (el nulo de RF) donde el campo oscilante se anula, y las partículas quedan confinadas en torno a esa región.
+
+Atrapamos partículas de licopodio (esporas vegetales, de unos 30 µm de diámetro) y las filmamos con una cámara mientras permanecen confinadas en la trampa. La iluminación hace que cada partícula se vea como una marca luminosa sobre un fondo oscuro.
+
+Una característica central de los videos: cada partícula atrapada no aparece como un punto, sino como una pequeña traza o rayita luminosa. Esto ocurre porque, durante el tiempo de exposición de cada frame, la partícula recorre una trayectoria en lugar de permanecer quieta. Distintas partículas dejan trazas de distinta longitud y en distintas posiciones dentro del cuadro.
+
+Montaje experimental:
+
+Tensión de radiofrecuencia aplicada: V_AC = 1175 V
+Frecuencia: f = 50 Hz
+Radio característico de la trampa: r0 = 8,9 mm
+Partículas: esporas de licopodio (~30 µm)
+Registro: video (cámara sobre la trampa), del que se extraen frames individuales
+
+Disponemos de los videos crudos del experimento, de los cuales pueden extraerse frames individuales para su análisis.

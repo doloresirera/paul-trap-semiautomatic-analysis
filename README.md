@@ -149,3 +149,20 @@ instrumental uncertainties.
 
 A didactic explanation of the errors, assumptions, and improvements is
 available as an [HTML document](agent-results/caso-1-codex-reanalysis/CASO_1_ERRORES_Y_MEJORAS.html).
+
+## Case 2: autonomous analysis from raw videos
+
+In a second evaluation, Codex was given 21 raw videos and only a short
+experimental context containing the RF voltage and frequency, trap radius,
+and nominal particle size. The agent autonomously developed the image
+processing, tracking, spectral analysis, and physical inference pipeline.
+
+The complete report, reproducible code, aggregate results, and figures are in
+[`agent-results/caso-2-codex-analysis/`](agent-results/caso-2-codex-analysis/REPORT.md).
+
+The analysis obtains `q = 0.200` (95% CI: 0.193–0.235) and, under an ideal
+quadrupole model, `|Q|/m = 6.65×10⁻⁴ C kg⁻¹`. The `3.53 Hz` secular frequency
+is a model prediction rather than an independent spectral identification. The
+report explicitly separates statistical error from systematic uncertainties
+due to exposure time, electrode geometry, voltage convention, and camera
+projection.

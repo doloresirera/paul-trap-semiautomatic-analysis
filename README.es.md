@@ -151,3 +151,22 @@ incertidumbres instrumentales.
 
 La explicación didáctica de los errores, supuestos y mejoras está disponible
 como [documento HTML](agent-results/caso-1-codex-reanalysis/CASO_1_ERRORES_Y_MEJORAS.html).
+
+## Caso 2: análisis autónomo desde videos crudos
+
+En una segunda evaluación se entregaron a Codex 21 videos crudos y solamente
+un breve contexto experimental con la tensión RF, la frecuencia, el radio de
+la trampa y el tamaño nominal de las partículas. El agente desarrolló de forma
+autónoma el procesamiento de imágenes, el seguimiento, el análisis espectral y
+la inferencia física.
+
+El reporte completo, el código reproducible, los resultados agregados y las
+figuras están en
+[`agent-results/caso-2-codex-analysis/`](agent-results/caso-2-codex-analysis/REPORT.md).
+
+El análisis obtiene `q = 0,200` (IC 95 %: 0,193–0,235) y, bajo un modelo
+cuadrupolar ideal, `|Q|/m = 6,65×10⁻⁴ C kg⁻¹`. La frecuencia secular de
+`3,53 Hz` es una predicción del modelo y no una identificación espectral
+independiente. El reporte distingue explícitamente los errores estadísticos de
+las incertidumbres sistemáticas asociadas con la exposición, la geometría, la
+convención del voltaje y la proyección de la cámara.
