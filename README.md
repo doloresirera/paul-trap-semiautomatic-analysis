@@ -129,3 +129,16 @@ Two sets of particles with a reliable center were analyzed:
 | Q/m [C/kg] | (8.7 ± 1.0)×10⁻⁴ | (8.5 ± 1.0)×10⁻⁴ |
 | Measurement error | 13 % | 11 % |
 | σ (spread of c_i) | 0.09 | 0.08 |
+
+## Reanalysis by an AI agent
+
+As part of an evaluation of AI tools, Codex was given the report and 11 raw
+videos and asked to reproduce the analysis without access to the original
+code. The results, methodological decisions, figures, tabulated data, and
+reproducible script are available in
+[`agent-results/codex-reanalysis/`](agent-results/codex-reanalysis/REPORTE_REANALISIS.md).
+
+This is an independent implementation rather than a replacement for the
+original semi-automatic analysis. In particular, it documents differences
+caused by manual streak correction, frame-level resampling, and propagation of
+instrumental uncertainties.

@@ -131,3 +131,16 @@ Se analizaron dos conjuntos de partículas con centro confiable:
 | Q/m [C/kg] | (8,7 ± 1,0)×10⁻⁴ | (8,5 ± 1,0)×10⁻⁴ |
 | Error de medición | 13 % | 11 % |
 | σ (dispersión de c_i) | 0,09 | 0,08 |
+
+## Reanálisis con un agente de IA
+
+Como parte de una evaluación de herramientas de IA, se entregaron el informe y
+11 videos crudos a Codex para que reprodujera el análisis sin disponer del
+código original. El resultado, las decisiones metodológicas, las figuras, los
+datos tabulados y el script reproducible están en
+[`agent-results/codex-reanalysis/`](agent-results/codex-reanalysis/REPORTE_REANALISIS.md).
+
+Este reanálisis es una implementación independiente y no reemplaza el análisis
+semiautomático original. En particular, documenta las diferencias producidas
+por la corrección manual de trazas, el remuestreo por frame y la propagación de
+incertidumbres instrumentales.
