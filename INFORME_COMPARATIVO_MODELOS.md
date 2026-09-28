@@ -4,17 +4,6 @@ Este documento compara los análisis guardados en [`agent-results/`](agent-resul
 
 También están disponibles una [síntesis ilustrada en PDF de cuatro páginas](agent-results/comparacion_4_casos_modelos.pdf) y su [versión HTML](agent-results/comparacion_4_casos_modelos.html).
 
-## Resultado en una tabla
-
-| Caso | gpt-5.6-sol default | GPT-6-Luna medium | Lectura de la comparación |
-|---|---|---|---|
-| **1. Reanálisis de 11 videos** | Dos videos asociados de forma plausible con los grupos del informe: `Q/m = (8,78 ± 1,07)` y `(8,80 ± 1,16) × 10⁻⁴ C/kg`. Usa los centros publicados. | Analiza los 11 videos con centro libre; **ninguno** supera todos los controles de calidad. No informa un `Q/m` final. | Los resultados responden a condiciones geométricas distintas. El acuerdo de Sol con el informe es **condicional al centro**. |
-| **2. Análisis autónomo de 21 videos** | `q = 0,200` y `|Q|/m = 6,65 × 10⁻⁴ C/kg` bajo el modelo cuadrupolar ideal. No confirma espectralmente la frecuencia secular. | Retiene **6 de 21** videos y obtiene `Q/m = (6,5 ± 1,9) × 10⁻⁴ C/kg` mediante longitud por PCA. | Los valores centrales son próximos; las incertidumbres y los filtros no tienen la misma definición. |
-| **3. Reanálisis exploratorio** | Procesa **11 videos**, detecta **519 trazas** y no acepta ninguno para un `Q/m` final. | Procesa **21 videos** y tampoco acepta ninguno para un `Q/m` final. | Ambos rechazan una medición final, pero **no analizaron conjuntos del mismo tamaño**. |
-| **4. Método alternativo / análisis dinámico** | Sobre dos videos de referencia: `Q/m = (8,99 ± 1,08)` y `(8,91 ± 1,07) × 10⁻⁴ C/kg` con longitud por área y perímetro y centros publicados. | Procesa los **21 videos completos**: 1.036 candidatos espectrales preliminares, **0 aceptados**. No informa `Q/m` final. | Las dos ejecuciones hacen pruebas diferentes: geometría de dos grupos frente a evidencia dinámica de todos los videos. |
-
-Las cifras de `Q/m` se expresan en valor absoluto. **«Sin resultado final» no significa `Q/m = 0`**: indica que el análisis descartó sus estimaciones exploratorias según sus propios controles.
-
 ## Cómo interpretar cada caso
 
 ### Caso 1: reproducir dos grupos del informe experimental
