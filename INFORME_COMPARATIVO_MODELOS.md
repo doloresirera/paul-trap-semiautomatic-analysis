@@ -49,5 +49,3 @@ Los dos análisis **no estiman la misma magnitud con el mismo procedimiento**. E
 ## Conclusión
 
 El **caso 2** muestra valores centrales de `Q/m` cercanos con dos formas diferentes de medir las trazas, aunque sigue pendiente la calibración física y la validación espectral. En el **caso 3**, ambos análisis rechazan un resultado final, sobre conjuntos de datos distintos. En los **casos 1 y 4**, los valores de Sol concuerdan con el informe experimental bajo centros geométricos tomados de ese mismo informe; Luna aplica controles o una prueba dinámica diferentes y no informa un `Q/m` final.
-
-Para mejorar la comparación habría que ejecutar ambos métodos sobre **los mismos videos**, con criterios de selección acordados antes del análisis, medir el centro de la trampa por una vía independiente y documentar amplitud RF, tiempo de exposición y geometría de electrodos. Sólo entonces tendría sentido evaluar diferencias atribuibles al procesamiento o al modelo.
