@@ -4,6 +4,12 @@ Este documento compara los análisis guardados en [`agent-results/`](agent-resul
 
 También están disponibles una [síntesis ilustrada en PDF de cuatro páginas](agent-results/comparacion_4_casos_modelos.pdf) y su [versión HTML](agent-results/comparacion_4_casos_modelos.html).
 
+## La decisión humana que falta en los análisis automáticos
+
+El [procedimiento experimental original](README.es.md#idea-del-método) es **semiautomático**: el programa propone trazas y una persona **acepta, descarta o corrige la selección cuadro por cuadro**. Esa intervención resuelve decisiones que los filtros de área, brillo y elongación no siempre pueden tomar: distinguir una traza real de un reflejo, unir fragmentos de una misma estela o separar manchas fusionadas. **El centro de la trampa se calcula después con las trazas elegidas; no se marca a mano.**
+
+Si un análisis completamente automático conserva fragmentos o fusiones, cambia la longitud medida `L`, la relación `L/R` y las trazas que determinan el centro. Es una explicación plausible de los ajustes inestables y los descartes de los **casos 1 y 3**, donde falta aquella decisión humana. Los informes también documentan cobertura angular insuficiente y centros mal determinados: sin revisar una muestra de cuadros con el mismo criterio humano, no se puede cuantificar cuánto de cada fallo se debe a la selección de trazas. En el **caso 4 de Luna**, además, el rechazo es espectral; la revisión de trazas por sí sola no corrige la cadencia de cámara ni la resolución temporal.
+
 ## Cómo interpretar cada caso
 
 ### Caso 1: reproducir dos grupos del informe experimental
@@ -12,7 +18,7 @@ Sol muestrea 40 cuadros por video, mide la longitud de las trazas mediante una l
 
 Luna mide las trazas por esqueletización y ajusta centro y pendiente simultáneamente. Los centros obtenidos varían demasiado y los ajustes muestran poca linealidad; **0 de 11 videos** cumple a la vez sus criterios de linealidad, estabilidad del centro y límite físico. Sus valores por video son diagnósticos, no mediciones aceptadas. Véanse el [informe](agent-results/caso%201%20GPT-6-Luna%20medium/informe_reanalisis.html) y la [tabla](agent-results/caso%201%20GPT-6-Luna%20medium/resultados_videos.csv).
 
-La diferencia decisiva es **cómo se conoce el centro de la trampa**. Este caso no permite concluir que un algoritmo mida mejor `Q/m` en general: uno fija el centro a partir de información publicada y el otro intenta estimarlo con las trazas.
+La comparación combina **dos diferencias**: cómo se seleccionan o corrigen las trazas y cómo se conoce el centro. Sol fija el centro a partir de información publicada; Luna intenta estimarlo con trazas seleccionadas automáticamente. Si esas trazas contienen reflejos, fragmentos o fusiones, el centro libre puede volverse inestable. Los archivos disponibles no aíslan el efecto de la revisión humana del efecto de fijar el centro.
 
 ### Caso 2: partir de 21 videos y un contexto físico breve
 
@@ -28,7 +34,7 @@ Sol implementa un análisis automático del método `L = cR` sobre **11 videos**
 
 Luna aplica esqueletización Zhang–Suen, ajuste robusto de centro y `c`, y remuestreo bootstrap sobre **21 videos**. Ninguno supera a la vez cantidad mínima de trazas, estabilidad del centro y límite de estabilidad de `c`. Véanse el [resumen](agent-results/caso%203%20GPT-6-Luna%20medium/README.md) y las [decisiones por video](agent-results/caso%203%20GPT-6-Luna%20medium/decisiones.csv).
 
-La coincidencia válida es **la decisión de no informar una medición final**. Al cambiar el conjunto de entrada, las cifras de trazas, distribuciones de `c` y tasas de descarte no constituyen una comparación video a video.
+La coincidencia válida es **la decisión de no informar una medición final**. Ambos sustituyen la aceptación, el descarte y la corrección humana de cada cuadro por reglas automáticas; eso puede dejar trazas falsas o mal medidas en el ajuste. La cobertura angular y la estabilidad del centro siguen siendo problemas aun con trazas bien seleccionadas. Al cambiar el conjunto de entrada, las cifras de trazas, distribuciones de `c` y tasas de descarte no constituyen una comparación video a video.
 
 ### Caso 4: longitud geométrica frente a señal espectral
 
@@ -48,4 +54,4 @@ Los dos análisis **no estiman la misma magnitud con el mismo procedimiento**. E
 
 ## Conclusión
 
-El **caso 2** muestra valores centrales de `Q/m` cercanos con dos formas diferentes de medir las trazas, aunque sigue pendiente la calibración física y la validación espectral. En el **caso 3**, ambos análisis rechazan un resultado final, sobre conjuntos de datos distintos. En los **casos 1 y 4**, los valores de Sol concuerdan con el informe experimental bajo centros geométricos tomados de ese mismo informe; Luna aplica controles o una prueba dinámica diferentes y no informa un `Q/m` final.
+El **caso 2** muestra valores centrales de `Q/m` cercanos con dos formas diferentes de medir las trazas, aunque sigue pendiente la calibración física y la validación espectral. En el **caso 3**, ambos análisis rechazan un resultado final, sobre conjuntos de datos distintos. En los **casos 1 y 3**, la ausencia de la selección y corrección humana que forma parte del procedimiento original es una causa plausible de los descartes automáticos, junto con la mala determinación geométrica del centro. En los **casos 1 y 4**, los valores de Sol concuerdan con el informe experimental bajo centros geométricos tomados de ese mismo informe; Luna aplica controles o una prueba dinámica diferentes y no informa un `Q/m` final.
