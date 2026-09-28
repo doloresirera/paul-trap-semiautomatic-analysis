@@ -1,0 +1,1 @@
+video_id,video,track_id,start_frame,end_frame,n_detections,mean_path_length_px,median_path_length_px,mean_radius_px,median_alignment_deg,f_peak_hz,f_resolution_hz,amp_px,amp_x_px,amp_y_px,psd_peak,rms_residual_px,n_track,duration_track_s,relative_sinusoid_residual

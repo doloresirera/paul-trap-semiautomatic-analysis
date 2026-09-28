@@ -1,0 +1,18 @@
+{
+  "V_AC_V": 1175.0,
+  "f_RF_Hz": 50.0,
+  "r0_m": 0.0089,
+  "diameter_m": 3e-05,
+  "rho_reference_kg_m3": 1000.0,
+  "bg_sigma_px": 15.0,
+  "hp_threshold": 20,
+  "min_area_px": 35,
+  "max_link_px": 70.0,
+  "max_gap_frames": 2,
+  "mathieu_qm_per_q_C_per_kg": 0.0033266866579161197,
+  "scale_assumption": "r0 divided by 95th percentile of maximum streak-endpoint radius",
+  "r95_endpoint_px": 285.0358699349638,
+  "mm_per_px_assumed": 0.03122414032321862,
+  "qm_per_mathieu_q_C_per_kg": 0.0033266866579161197,
+  "mass_ref_kg": 1.413716694115407e-11
+}
