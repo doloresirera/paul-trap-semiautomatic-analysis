@@ -172,3 +172,18 @@ projection.
 The [`caso 3/`](caso%203/) folder contains an independent implementation built from the written method and the raw videos. It includes the physical and methodological context, Python analysis code, detected-streak tables, diagnostic plots, and a final HTML report. The raw videos are not stored in the repository.
 
 This run uses reproducible automatic rules for streak selection instead of the frame-by-frame human validation required by the original semi-automatic workflow. None of the videos passed all the predefined fit and center-stability criteria, so the per-video Q/m values are reported only as diagnostics and no combined physical result is claimed. Manual review of the proposed detections would be required to complete a faithful semi-automatic reanalysis.
+
+## Case 4: alternative area–perimeter method
+
+For this evaluation, Codex received the original report and all 21 raw videos
+and was asked to develop a different method for calculating `Q/m`. Instead of
+skeletonizing each streak, the alternative analysis estimates its length from
+the segmented area and perimeter, applies reproducible automatic quality cuts,
+and propagates uncertainty with frame-level bootstrap and Monte Carlo.
+
+The full report, reproducible code, trace-level tables, and figures are in
+[`agent-results/caso-4-codex-alternative-analysis/`](agent-results/caso-4-codex-alternative-analysis/REPORTE_METODO_ALTERNATIVO.md).
+
+The method obtains `Q/m = (8.99 ± 1.08)×10⁻⁴ C kg⁻¹` for group 1 and
+`Q/m = (8.91 ± 1.07)×10⁻⁴ C kg⁻¹` for group 2. The differences from the
+original report, `+3.3%` and `+4.8%`, are not statistically significant.

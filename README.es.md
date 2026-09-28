@@ -176,3 +176,21 @@ convención del voltaje y la proyección de la cámara.
 La carpeta [`caso 3/`](caso%203/) contiene una implementación independiente construida a partir del método escrito y los videos crudos. Incluye el contexto físico y metodológico, el código Python, las tablas de trazas detectadas, las figuras diagnósticas y un informe HTML final. Los videos crudos no se almacenan en el repositorio.
 
 Esta ejecución usa reglas automáticas reproducibles para seleccionar trazas, en lugar de la validación humana cuadro por cuadro que requiere el procedimiento semiautomático original. Ningún video superó todos los criterios predefinidos de ajuste y estabilidad del centro; por eso los valores de Q/m por video se presentan solamente como diagnósticos y no se informa un resultado físico combinado. Para completar una reproducción fiel del método semiautomático sería necesaria la revisión manual de las detecciones propuestas.
+
+## Caso 4: método alternativo área–perímetro
+
+En esta evaluación se entregaron a Codex el informe original y los 21 videos
+crudos, y se le pidió desarrollar un método diferente para calcular `Q/m`. El
+nuevo análisis evita la esqueletización: estima la longitud de cada estela a
+partir de su área y perímetro, automatiza el control de calidad y propaga las
+incertidumbres mediante bootstrap por frames y Monte Carlo.
+
+El reporte, el código reproducible, las tablas de trazas y las figuras están en
+[`agent-results/caso-4-codex-alternative-analysis/`](agent-results/caso-4-codex-alternative-analysis/REPORTE_METODO_ALTERNATIVO.md).
+
+Se obtuvieron `Q/m = (8,99 ± 1,08)×10⁻⁴ C kg⁻¹` para el grupo 1 y
+`Q/m = (8,91 ± 1,07)×10⁻⁴ C kg⁻¹` para el grupo 2. Las diferencias respecto
+del informe, `+3,3 %` y `+4,8 %`, no son estadísticamente significativas. El
+análisis también discute por qué la dispersión entre trazas no puede atribuirse
+de forma concluyente a heterogeneidad física sin seguimiento de partículas y
+un modelo jerárquico.
