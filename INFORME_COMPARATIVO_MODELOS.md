@@ -2,9 +2,9 @@
 
 ## 1. Resumen ejecutivo
 
-Este informe compara las ejecuciones de análisis asistido por IA documentadas en el repositorio sobre videos de esporas de licopodio confinadas en una trampa de Paul. El objetivo experimental común es estimar la relación carga–masa `Q/m` a partir de la relación entre la longitud de las trazas de micromoción (`L`) y su distancia al centro de la trampa (`R`).
+Este informe compara las ejecuciones de análisis asistido por IA documentadas en el repositorio sobre videos de esporas de licopodio confinadas en una trampa de Paul. 
 
-La evidencia disponible no permite comparar GPT-4o, Claude, Llama, Phi u otros modelos que no aparecen en los archivos versionados. Los modelos identificables son **Codex** y **GPT-6-Luna medium**. Tampoco se registran tiempos de respuesta, tokens consumidos, precios ni hardware de ejecución. Por ello, la dimensión “eficiencia” se evalúa únicamente mediante la complejidad del método, el grado de automatización, el número de pasadas y la cantidad de información geométrica conservada; no se presentan costos o latencias inventados.
+Los modelos identificables son **Codex** y **GPT-6-Luna medium**. Tampoco se registran tiempos de respuesta, tokens consumidos, precios ni hardware de ejecución. Por ello, la dimensión “eficiencia” se evalúa únicamente mediante la complejidad del método, el grado de automatización, el número de pasadas y la cantidad de información geométrica conservada; no se presentan costos o latencias inventados.
 
 La conclusión general es que los enfoques más complejos producen una cadena de inferencia más rica, mejores diagnósticos y, en los casos adecuados, resultados cuantitativos compatibles con el informe original. Sin embargo, la complejidad no resuelve por sí sola los problemas de identificabilidad: el análisis espectral de Caso 2 no obtuvo una frecuencia secular independiente robusta y el análisis full-frame de Caso 4 no produjo tracks físicamente aceptados. Los enfoques compactos, especialmente PCA, son atractivos para exploración y cribado rápido, pero pierden curvatura y aumentan la incertidumbre (`Q/m = (6,5 ± 1,9)×10⁻⁴ C/kg` frente a los valores del método más completo).
 
