@@ -2,6 +2,8 @@
 
 Este documento compara los análisis guardados en [`agent-results/`](agent-results/) para los cuatro casos de la trampa de Paul. Los nombres de los modelos corresponden a los **directorios del repositorio**. La comparación se basa en sus informes, tablas y figuras; no vuelve a procesar los videos.
 
+**Autoría de esta comparación:** el análisis y la redacción los realiza Codex, una IA GPT-6 Sol con razonamiento medio (`medium`). Esta autoría corresponde al informe comparativo; los resultados de cada caso pertenecen a las ejecuciones identificadas en sus respectivas carpetas.
+
 También están disponibles una [síntesis ilustrada en PDF de cuatro páginas](agent-results/comparacion_4_casos_modelos.pdf) y su [versión HTML](agent-results/comparacion_4_casos_modelos.html).
 
 ## La decisión humana que falta en los análisis automáticos
@@ -49,9 +51,9 @@ Los dos análisis **no estiman la misma magnitud con el mismo procedimiento**. E
 - **Conversión física condicional.** Los análisis emplean una frecuencia RF de `50 Hz`, una tensión nominal de `1175 V` y un radio de `8,9 mm` bajo un modelo de campo ideal. La convención de amplitud de tensión, la geometría real de los electrodos y la exposición de la cámara pueden modificar `Q/m`.
 - **Centro e imagen.** Una cobertura angular escasa permite que centros y pendientes diferentes ajusten trazas parecidas. La cámara registra una proyección bidimensional; el ancho óptico, las fusiones y la fragmentación alteran la longitud medida.
 - **Observaciones repetidas.** Varias trazas pueden pertenecer a la misma partícula en cuadros diferentes. Remuestrear trazas como si fueran partículas independientes subestimaría la incertidumbre.
-- **Alcance de la comparación.** Los casos 1 y 4 de Sol usan centros publicados; en el caso 3 cambian los videos; y en el caso 4 cambia la pregunta física. No corresponde promediar los cuatro valores ni ordenar los modelos por «exactitud» a partir de esta tabla.
+- **Alcance de la comparación.** Los casos 1 y 4 de Sol usan centros publicados; en el caso 3 cambian los videos; y en el caso 4 cambia la pregunta física. No corresponde promediar los cuatro valores ni ordenar los modelos por «exactitud» a partir de estos resultados.
 - **Costo y velocidad.** El repositorio no conserva tiempos de ejecución, tokens, precios ni hardware comparables. Una menor cantidad de umbrales o pasos describe el algoritmo, pero no demuestra un menor costo o latencia del modelo.
 
 ## Conclusión
 
-El **caso 2** muestra valores centrales de `Q/m` cercanos con dos formas diferentes de medir las trazas, aunque sigue pendiente la calibración física y la validación espectral. En el **caso 3**, ambos análisis rechazan un resultado final, sobre conjuntos de datos distintos. En los **casos 1 y 3**, la ausencia de la selección y corrección humana que forma parte del procedimiento original es una causa plausible de los descartes automáticos, junto con la mala determinación geométrica del centro. En los **casos 1 y 4**, los valores de Sol concuerdan con el informe experimental bajo centros geométricos tomados de ese mismo informe; Luna aplica controles o una prueba dinámica diferentes y no informa un `Q/m` final.
+**La conclusión principal es metodológica:** el procedimiento experimental original requiere que una persona acepte, descarte o corrija trazas cuadro por cuadro antes de calcular el centro. Los análisis automáticos de los **casos 1 y 3** omiten esa decisión; la permanencia de reflejos, fragmentos o fusiones es una causa plausible de los centros inestables y de los descartes. También influye la cobertura angular, y estos archivos no permiten separar cuantitativamente ambas causas. En el **caso 2**, los valores centrales de `Q/m` son próximos, pero la calibración física y la validación espectral siguen pendientes. En los **casos 1 y 4**, los valores de Sol concuerdan con el informe experimental usando centros tomados de ese informe; Luna aplica controles o una prueba dinámica diferentes y no informa un `Q/m` final.

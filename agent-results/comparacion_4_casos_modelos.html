@@ -70,6 +70,7 @@
   <h1 id="title">Qué concluye cada análisis<br>de la trampa de Paul</h1>
   <div class="hero-line"></div>
   <p class="lead">Síntesis de los resultados publicados en <strong>agent-results</strong> para <span class="tag sol">gpt-5.6-sol default</span> y <span class="tag luna">GPT-6-Luna medium</span>. Los números son los informados por cada análisis; aquí se comparan sus métodos, criterios de aceptación y límites.</p>
+  <p class="small muted"><strong>Autoría de esta comparación:</strong> Codex, una IA GPT-6 Sol con razonamiento medio (medium). Los resultados de cada caso pertenecen a las ejecuciones citadas.</p>
   <div class="summary">
     <div class="box"><span class="big">4 casos × 2 modelos</span><span class="small muted">Ocho trabajos, con preguntas y controles distintos.</span></div>
     <div class="box"><span class="big">1 paso humano clave</span><span class="small muted">El método original exige aceptar, descartar o corregir trazas cuadro por cuadro.</span></div>
@@ -196,7 +197,7 @@
       </ul>
     </div>
   </div>
-  <div class="callout" style="margin:14px 0 15px"><strong>Conclusión.</strong> El caso 2 ofrece la comparación numérica más directa. En los casos 1 y 3, omitir la aceptación, el descarte y la corrección humana de trazas es una causa plausible de los fallos automáticos, junto con la inestabilidad geométrica. En los casos 1 y 4, Sol usa centros publicados; Luna aplica controles o una prueba dinámica distintos.</div>
+  <div class="callout" style="margin:14px 0 15px"><strong>Conclusión.</strong> El método experimental original exige una decisión humana: aceptar, descartar o corregir trazas cuadro por cuadro antes de calcular el centro. Los análisis automáticos de los <strong>casos 1 y 3</strong> omiten ese paso; reflejos, fragmentos y fusiones sin corregir son una causa plausible de sus centros inestables y descartes. La cobertura angular también influye y los datos no separan cuánto aporta cada causa. El caso 2 da valores centrales próximos; en los casos 1 y 4, Sol usa centros publicados y Luna aplica controles o una prueba dinámica distintos.</div>
   <h3>La revisión humana no fija el centro</h3>
   <p class="small">En el flujo original, una persona revisa las trazas propuestas en cada cuadro y el centro se calcula después con las trazas elegidas. Sin una comparación sobre los mismos cuadros revisados y sin revisar los falsos positivos, no se puede separar cuánto del fallo proviene de esa etapa ausente y cuánto de una cobertura angular insuficiente. El rechazo espectral del caso 4 de Luna tiene además un límite de adquisición: la cámara registra ~21,46 cuadros/s frente a una RF supuesta de 50 Hz.</p>
   <p class="section-label">Fuentes primarias del repositorio</p>
@@ -210,7 +211,7 @@
     <li>[7] <a href="caso-4-codex-alternative-analysis%20gpt-5.6-sol%20default/REPORTE_METODO_ALTERNATIVO.md">Caso 4 · reporte Sol</a> y <a href="caso-4-codex-alternative-analysis%20gpt-5.6-sol%20default/resultados.csv">resultados de ambos grupos</a>.</li>
     <li>[8] <a href="caso%204%20GPT-6-Luna%20medium/README.md">Caso 4 · resumen Luna</a> y <a href="caso%204%20GPT-6-Luna%20medium/informe_reanalisis.html">informe visual</a>.</li>
   </ol>
-  <p class="tiny muted" style="margin-top:12px">Alcance: síntesis editorial de los resultados y archivos ya publicados; no se reprocesaron los MP4. «Sol» y «Luna» identifican los directorios del repositorio y no son una medida de calidad general de los modelos. Las figuras de este documento se dibujaron a partir de los valores citados.</p>
+  <p class="tiny muted" style="margin-top:12px">Autoría: Codex, IA GPT-6 Sol medium. Alcance: síntesis de resultados ya publicados; no se reprocesaron los MP4. «Sol» y «Luna» identifican los directorios comparados y no son una medida de calidad general de los modelos. Las figuras se dibujaron a partir de los valores citados.</p>
   <div class="folio"><span>Comparación de cuatro casos de la trampa de Paul</span><span>4 / 4</span></div>
 </section>
 </body>
