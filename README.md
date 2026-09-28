@@ -167,9 +167,14 @@ report explicitly separates statistical error from systematic uncertainties
 due to exposure time, electrode geometry, voltage convention, and camera
 projection.
 
+### Case 2 — GPT-6-Luna medium
+
+An analogous report using the efficient PCA image-moment model is available in
+[`agent-results/caso 2 GPT-6-Luna medium/`](agent-results/caso%202%20GPT-6-Luna%20medium/informe_reanalisis.html). It reports the per-video results, the six retained videos, the generated figures, and the comparison with the original analysis.
+
 ## Case 3: automatic exploratory reanalysis
 
-The [`caso 3/`](caso%203/) folder contains an independent implementation built from the written method and the raw videos. It includes the physical and methodological context, Python analysis code, detected-streak tables, diagnostic plots, and a final HTML report. The raw videos are not stored in the repository.
+The [`agent-results/caso 3/`](agent-results/caso%203/) folder contains an independent implementation built from the written method and the raw videos. It includes the physical and methodological context, Python analysis code, detected-streak tables, diagnostic plots, and a final HTML report. The raw videos are not stored in the repository.
 
 This run uses reproducible automatic rules for streak selection instead of the frame-by-frame human validation required by the original semi-automatic workflow. None of the videos passed all the predefined fit and center-stability criteria, so the per-video Q/m values are reported only as diagnostics and no combined physical result is claimed. Manual review of the proposed detections would be required to complete a faithful semi-automatic reanalysis.
 
@@ -187,3 +192,20 @@ The full report, reproducible code, trace-level tables, and figures are in
 The method obtains `Q/m = (8.99 ± 1.08)×10⁻⁴ C kg⁻¹` for group 1 and
 `Q/m = (8.91 ± 1.07)×10⁻⁴ C kg⁻¹` for group 2. The differences from the
 original report, `+3.3%` and `+4.8%`, are not statistically significant.
+
+## Case 2.2: efficient alternative model linked to Case 2
+
+This repository also includes a follow-up to Case 2 using the same autonomous
+analysis setting and raw videos, but with a more computationally efficient
+geometric model. Instead of calculating contours,
+perimeters, and five threshold realizations, it uses one segmentation and
+estimates each streak length from the principal eigenvalue of the pixel
+covariance matrix. It avoids skeletonization and pixel-graph traversal.
+
+The exploratory result is `Q/m = (6.5 Â± 1.9)Ã—10â»â´ C kgâ»Â¹`. The larger
+uncertainty is expected: PCA loses curvature information and the video-to-video
+spread dominates the error. “More efficient” refers to computational cost and
+model simplicity, not automatically higher accuracy.
+
+The report, reproducible code, tables, and figures are available in
+[`agent-results/caso-2.2-codex-efficient-pca-analysis/`](agent-results/caso-2.2-codex-efficient-pca-analysis/REPORTE_MODELO_EFICIENTE.md).

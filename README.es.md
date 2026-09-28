@@ -164,6 +164,12 @@ El reporte completo, el código reproducible, los resultados agregados y las
 figuras están en
 [`agent-results/caso-2-codex-analysis/`](agent-results/caso-2-codex-analysis/REPORT.md).
 
+### Caso 2 — GPT-6-Luna medium
+
+El reporte análogo, con los resultados del modelo eficiente PCA de momentos de
+imagen, está en
+[`agent-results/caso 2 GPT-6-Luna medium/`](agent-results/caso%202%20GPT-6-Luna%20medium/informe_reanalisis.html).
+
 El análisis obtiene `q = 0,200` (IC 95 %: 0,193–0,235) y, bajo un modelo
 cuadrupolar ideal, `|Q|/m = 6,65×10⁻⁴ C kg⁻¹`. La frecuencia secular de
 `3,53 Hz` es una predicción del modelo y no una identificación espectral
@@ -173,7 +179,7 @@ convención del voltaje y la proyección de la cámara.
 
 ## Caso 3: reanálisis exploratorio automático
 
-La carpeta [`caso 3/`](caso%203/) contiene una implementación independiente construida a partir del método escrito y los videos crudos. Incluye el contexto físico y metodológico, el código Python, las tablas de trazas detectadas, las figuras diagnósticas y un informe HTML final. Los videos crudos no se almacenan en el repositorio.
+La carpeta [`agent-results/caso 3/`](agent-results/caso%203/) contiene una implementación independiente construida a partir del método escrito y los videos crudos. Incluye el contexto físico y metodológico, el código Python, las tablas de trazas detectadas, las figuras diagnósticas y un informe HTML final. Los videos crudos no se almacenan en el repositorio.
 
 Esta ejecución usa reglas automáticas reproducibles para seleccionar trazas, en lugar de la validación humana cuadro por cuadro que requiere el procedimiento semiautomático original. Ningún video superó todos los criterios predefinidos de ajuste y estabilidad del centro; por eso los valores de Q/m por video se presentan solamente como diagnósticos y no se informa un resultado físico combinado. Para completar una reproducción fiel del método semiautomático sería necesaria la revisión manual de las detecciones propuestas.
 
@@ -194,3 +200,19 @@ del informe, `+3,3 %` y `+4,8 %`, no son estadísticamente significativas. El
 análisis también discute por qué la dispersión entre trazas no puede atribuirse
 de forma concluyente a heterogeneidad física sin seguimiento de partículas y
 un modelo jerárquico.
+
+## Caso 2.2: modelo eficiente basado en momentos de imagen
+
+Como extensión conceptual del Caso 2, se incorporó un análisis que utiliza los
+mismos videos y el mismo flujo autónomo, pero reemplaza el estimador geométrico
+por un modelo PCA basado en momentos de imagen. Es más eficiente
+computacionalmente que el método área–perímetro: usa una sola segmentación y
+no calcula perímetros ni múltiples umbrales.
+
+El resultado exploratorio es `Q/m = (6,5 ± 1,9)×10⁻⁴ C kg⁻¹`. La incertidumbre
+es mayor porque la longitud PCA pierde información sobre la curvatura de las
+trazas. “Más eficiente” se refiere al costo computacional y a la simplicidad,
+no a una precisión automáticamente superior.
+
+El reporte, el código, las tablas y las figuras están en
+[`agent-results/caso-2.2-codex-efficient-pca-analysis/`](agent-results/caso-2.2-codex-efficient-pca-analysis/REPORTE_MODELO_EFICIENTE.md).
