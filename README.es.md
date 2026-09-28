@@ -16,6 +16,8 @@ Facultad de Ciencias Exactas y Naturales (FCEN), Universidad de Buenos Aires (UB
 
 Como proyecto final del curso "Investigación asistida por inteligencia artificial: aplicación en ondas gravitacionales" dictado por Matías Zaldarriaga en el segundo cuatrimestre del 2026, se utilizará el material de trabajo de este experimento para, en distinto niveles, probar cómo la IA reproduce o mejora el trabajo realizado.
 
+Los cuatro casos y los resultados de ambos modelos se comparan en el [informe comparativo](INFORME_COMPARATIVO_MODELOS.md), también disponible en [PDF de cuatro páginas](agent-results/comparacion_4_casos_modelos.pdf) y [HTML](agent-results/comparacion_4_casos_modelos.html).
+
 ## Idea del método
 
 Una partícula atrapada en una trampa de Paul oscila rápidamente en torno a su
@@ -142,7 +144,7 @@ Como parte de una evaluación de herramientas de IA, se entregaron el informe y
 11 videos crudos a Codex para que reprodujera el análisis sin disponer del
 código original. El resultado, las decisiones metodológicas, las figuras, los
 datos tabulados y el script reproducible están en
-[`agent-results/caso-1-codex-reanalysis/`](agent-results/caso-1-codex-reanalysis/REPORTE_REANALISIS.md).
+[`agent-results/caso-1-codex-reanalysis gpt-5.6-sol default/`](agent-results/caso-1-codex-reanalysis%20gpt-5.6-sol%20default/REPORTE_REANALISIS.md).
 
 Este reanálisis es una implementación independiente y no reemplaza el análisis
 semiautomático original. En particular, documenta las diferencias producidas
@@ -150,7 +152,7 @@ por la corrección manual de trazas, el remuestreo por frame y la propagación d
 incertidumbres instrumentales.
 
 La explicación didáctica de los errores, supuestos y mejoras está disponible
-como [documento HTML](agent-results/caso-1-codex-reanalysis/CASO_1_ERRORES_Y_MEJORAS.html).
+como [documento HTML](agent-results/caso-1-codex-reanalysis%20gpt-5.6-sol%20default/CASO_1_ERRORES_Y_MEJORAS.html).
 
 ## Caso 2: análisis autónomo desde videos crudos
 
@@ -162,7 +164,7 @@ la inferencia física.
 
 El reporte completo, el código reproducible, los resultados agregados y las
 figuras están en
-[`agent-results/caso-2-codex-analysis/`](agent-results/caso-2-codex-analysis/REPORT.md).
+[`agent-results/caso-2-codex-analysis gpt-5.6-sol default/`](agent-results/caso-2-codex-analysis%20gpt-5.6-sol%20default/REPORT.md).
 
 
 El análisis obtiene `q = 0,200` (IC 95 %: 0,193–0,235) y, bajo un modelo
@@ -174,7 +176,7 @@ convención del voltaje y la proyección de la cámara.
 
 ## Caso 3: reanálisis exploratorio automático
 
-La carpeta [`agent-results/caso 3/`](agent-results/caso%203/) contiene una implementación independiente construida a partir del método escrito y los videos crudos. Incluye el contexto físico y metodológico, el código Python, las tablas de trazas detectadas, las figuras diagnósticas y un informe HTML final. Los videos crudos no se almacenan en el repositorio.
+La carpeta [`agent-results/caso 3 gpt-5.6-sol default/`](agent-results/caso%203%20gpt-5.6-sol%20default/) contiene una implementación independiente construida a partir del método escrito y los videos crudos. Incluye el contexto físico y metodológico, el código Python, las tablas de trazas detectadas, las figuras diagnósticas y un informe HTML final. Los videos crudos no se almacenan en el repositorio.
 
 Esta ejecución usa reglas automáticas reproducibles para seleccionar trazas, en lugar de la validación humana cuadro por cuadro que requiere el procedimiento semiautomático original. Ningún video superó todos los criterios predefinidos de ajuste y estabilidad del centro; por eso los valores de Q/m por video se presentan solamente como diagnósticos y no se informa un resultado físico combinado. Para completar una reproducción fiel del método semiautomático sería necesaria la revisión manual de las detecciones propuestas.
 
@@ -187,7 +189,7 @@ partir de su área y perímetro, automatiza el control de calidad y propaga las
 incertidumbres mediante bootstrap por frames y Monte Carlo.
 
 El reporte, el código reproducible, las tablas de trazas y las figuras están en
-[`agent-results/caso-4-codex-alternative-analysis/`](agent-results/caso-4-codex-alternative-analysis/REPORTE_METODO_ALTERNATIVO.md).
+[`agent-results/caso-4-codex-alternative-analysis gpt-5.6-sol default/`](agent-results/caso-4-codex-alternative-analysis%20gpt-5.6-sol%20default/REPORTE_METODO_ALTERNATIVO.md).
 
 Se obtuvieron `Q/m = (8,99 ± 1,08)×10⁻⁴ C kg⁻¹` para el grupo 1 y
 `Q/m = (8,91 ± 1,07)×10⁻⁴ C kg⁻¹` para el grupo 2. Las diferencias respecto

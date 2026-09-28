@@ -17,6 +17,8 @@ Aires (UBA).
 
 As the final project for the course "AI-assisted research: application to gravitational waves," taught by Matías Zaldarriaga in the second semester of 2026, the material from this experiment is used to test, at different levels, how AI reproduces or improves on the work carried out.
 
+The four cases and both model runs are compared in the [model comparison report](INFORME_COMPARATIVO_MODELOS.md), also available as a [four-page PDF](agent-results/comparacion_4_casos_modelos.pdf) and [HTML](agent-results/comparacion_4_casos_modelos.html).
+
 ## The idea behind the method
 
 A particle trapped in a Paul trap oscillates rapidly about its position, a
@@ -140,7 +142,7 @@ As part of an evaluation of AI tools, Codex was given the report and 11 raw
 videos and asked to reproduce the analysis without access to the original
 code. The results, methodological decisions, figures, tabulated data, and
 reproducible script are available in
-[`agent-results/caso-1-codex-reanalysis/`](agent-results/caso-1-codex-reanalysis/REPORTE_REANALISIS.md).
+[`agent-results/caso-1-codex-reanalysis gpt-5.6-sol default/`](agent-results/caso-1-codex-reanalysis%20gpt-5.6-sol%20default/REPORTE_REANALISIS.md).
 
 This is an independent implementation rather than a replacement for the
 original semi-automatic analysis. In particular, it documents differences
@@ -148,7 +150,7 @@ caused by manual streak correction, frame-level resampling, and propagation of
 instrumental uncertainties.
 
 A didactic explanation of the errors, assumptions, and improvements is
-available as an [HTML document](agent-results/caso-1-codex-reanalysis/CASO_1_ERRORES_Y_MEJORAS.html).
+available as an [HTML document](agent-results/caso-1-codex-reanalysis%20gpt-5.6-sol%20default/CASO_1_ERRORES_Y_MEJORAS.html).
 
 ## Case 2: autonomous analysis from raw videos
 
@@ -158,7 +160,7 @@ and nominal particle size. The agent autonomously developed the image
 processing, tracking, spectral analysis, and physical inference pipeline.
 
 The complete report, reproducible code, aggregate results, and figures are in
-[`agent-results/caso-2-codex-analysis/`](agent-results/caso-2-codex-analysis/REPORT.md).
+[`agent-results/caso-2-codex-analysis gpt-5.6-sol default/`](agent-results/caso-2-codex-analysis%20gpt-5.6-sol%20default/REPORT.md).
 
 The analysis obtains `q = 0.200` (95% CI: 0.193–0.235) and, under an ideal
 quadrupole model, `|Q|/m = 6.65×10⁻⁴ C kg⁻¹`. The `3.53 Hz` secular frequency
@@ -169,7 +171,7 @@ projection.
 
 ## Case 3: automatic exploratory reanalysis
 
-The [`agent-results/caso 3/`](agent-results/caso%203/) folder contains an independent implementation built from the written method and the raw videos. It includes the physical and methodological context, Python analysis code, detected-streak tables, diagnostic plots, and a final HTML report. The raw videos are not stored in the repository.
+The [`agent-results/caso 3 gpt-5.6-sol default/`](agent-results/caso%203%20gpt-5.6-sol%20default/) folder contains an independent implementation built from the written method and the raw videos. It includes the physical and methodological context, Python analysis code, detected-streak tables, diagnostic plots, and a final HTML report. The raw videos are not stored in the repository.
 
 This run uses reproducible automatic rules for streak selection instead of the frame-by-frame human validation required by the original semi-automatic workflow. None of the videos passed all the predefined fit and center-stability criteria, so the per-video Q/m values are reported only as diagnostics and no combined physical result is claimed. Manual review of the proposed detections would be required to complete a faithful semi-automatic reanalysis.
 
@@ -182,7 +184,7 @@ the segmented area and perimeter, applies reproducible automatic quality cuts,
 and propagates uncertainty with frame-level bootstrap and Monte Carlo.
 
 The full report, reproducible code, trace-level tables, and figures are in
-[`agent-results/caso-4-codex-alternative-analysis/`](agent-results/caso-4-codex-alternative-analysis/REPORTE_METODO_ALTERNATIVO.md).
+[`agent-results/caso-4-codex-alternative-analysis gpt-5.6-sol default/`](agent-results/caso-4-codex-alternative-analysis%20gpt-5.6-sol%20default/REPORTE_METODO_ALTERNATIVO.md).
 
 The method obtains `Q/m = (8.99 ± 1.08)×10⁻⁴ C kg⁻¹` for group 1 and
 `Q/m = (8.91 ± 1.07)×10⁻⁴ C kg⁻¹` for group 2. The differences from the
