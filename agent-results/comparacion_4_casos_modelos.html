@@ -32,13 +32,11 @@
     .summary .box { padding:12px 13px; border-radius:9px; border:1px solid var(--line); background:#fafcff; }
     .summary .big { display:block; font-size:19px; font-weight:700; line-height:1.1; margin-bottom:3px; }
     .section-label { margin:19px 0 8px; color:var(--muted); font-size:10px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; }
-    .matrix { width:100%; border-collapse:separate; border-spacing:0; table-layout:fixed; border:1px solid var(--line); border-radius:9px; overflow:hidden; }
-    .matrix th, .matrix td { padding:9px 10px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
-    .matrix tr:last-child td { border-bottom:0; }
-    .matrix th { font-size:11px; background:#f2f6fa; }
-    .matrix th:first-child { width:14%; }
-    .matrix th:nth-child(2), .matrix th:nth-child(3) { width:43%; }
-    .matrix .number { display:block; margin-top:4px; font-size:13px; font-weight:700; }
+    .case-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; }
+    .case-tile { padding:10px 12px; border:1px solid var(--line); border-radius:9px; background:#fafcff; }
+    .case-tile .tile-head { display:flex; align-items:center; justify-content:space-between; gap:7px; margin-bottom:5px; }
+    .case-tile .tile-head strong { font-size:13px; }
+    .case-tile .tile-outcome { display:block; margin-top:4px; font-size:12px; font-weight:700; }
     .callout { border-left:4px solid var(--blue); background:#f3f8fc; padding:10px 12px; border-radius:0 7px 7px 0; }
     .callout.amber { border-color:var(--amber); background:#fff8f0; }
     .case-head { display:flex; align-items:center; gap:9px; margin:0 0 9px; }
@@ -63,7 +61,7 @@
     .key { font-weight:700; color:var(--ink); }
     @page { size:A4; margin:0; }
     @media print { html { background:white; } body { -webkit-print-color-adjust:exact; print-color-adjust:exact; } .page { margin:0; box-shadow:none; width:210mm; height:297mm; min-height:297mm; } a { color:#125a98; } }
-    @media screen and (max-width:760px) { .page { width:100%; min-height:auto; margin:0; padding:24px 18px 40px; box-shadow:none; } .summary,.compare,.two-col { grid-template-columns:1fr; } .folio { position:static; margin-top:24px; } }
+    @media screen and (max-width:760px) { .page { width:100%; min-height:auto; margin:0; padding:24px 18px 40px; box-shadow:none; } .summary,.compare,.two-col,.case-grid { grid-template-columns:1fr; } .folio { position:static; margin-top:24px; } }
   </style>
 </head>
 <body>
@@ -74,20 +72,27 @@
   <p class="lead">Síntesis de los resultados publicados en <strong>agent-results</strong> para <span class="tag sol">gpt-5.6-sol default</span> y <span class="tag luna">GPT-6-Luna medium</span>. Los números son los informados por cada análisis; aquí se comparan sus métodos, criterios de aceptación y límites.</p>
   <div class="summary">
     <div class="box"><span class="big">4 casos × 2 modelos</span><span class="small muted">Ocho trabajos, con preguntas y controles distintos.</span></div>
-    <div class="box"><span class="big">1 coincidencia numérica clara</span><span class="small muted">Caso 2: valores centrales de Q/m cercanos, con incertidumbres distintas.</span></div>
+    <div class="box"><span class="big">1 paso humano clave</span><span class="small muted">El método original exige aceptar, descartar o corregir trazas cuadro por cuadro.</span></div>
   </div>
-  <p class="section-label">Figura 1 · mapa de resultados</p>
-  <table class="matrix">
-    <thead><tr><th>Caso</th><th><span class="tag sol">gpt-5.6-sol default</span></th><th><span class="tag luna">GPT-6-Luna medium</span></th></tr></thead>
-    <tbody>
-      <tr><td><strong>1</strong><br><span class="tiny muted">11 videos</span></td><td>Reproduce dos grupos con el centro publicado; estimación condicionada.<span class="number">8,78 y 8,80 × 10⁻⁴ C/kg</span></td><td>Centro y pendiente libres inestables; <strong>0 de 11</strong> videos validados.<span class="number">Sin Q/m final</span></td></tr>
-      <tr><td><strong>2</strong><br><span class="tiny muted">21 videos</span></td><td>Geometría de trazas y mediana por video; resultado dependiente del modelo.<span class="number">6,65 × 10⁻⁴ C/kg</span></td><td>Longitud por PCA; <strong>6 de 21</strong> videos retenidos.<span class="number">(6,5 ± 1,9) × 10⁻⁴ C/kg</span></td></tr>
-      <tr><td><strong>3</strong><br><span class="tiny muted">Conjuntos diferentes</span></td><td>11 videos; <strong>519 trazas</strong>; 0 videos aptos para Q/m final.<span class="number">Sin Q/m final</span></td><td>21 videos; centro bootstrap inestable; 0 videos aptos.<span class="number">Sin Q/m final</span></td></tr>
-      <tr><td><strong>4</strong><br><span class="tiny muted">21 videos disponibles</span></td><td>Dos videos de referencia; longitud por área y perímetro.<span class="number">8,99 y 8,91 × 10⁻⁴ C/kg</span></td><td>21 videos completos; <strong>0 de 1.036</strong> candidatos espectrales aceptados.<span class="number">Sin Q/m final</span></td></tr>
-    </tbody>
-  </table>
-  <p class="small muted" style="margin-top:8px">Valores de Q/m en valor absoluto. «Sin Q/m final» significa que el propio análisis rechazó sus estimaciones exploratorias; no significa que la carga de las partículas sea cero.</p>
-  <div class="callout amber" style="margin-top:14px"><strong>Lectura esencial.</strong> Los casos 1 y 4 de Sol usan centros geométricos tomados del informe experimental. Su acuerdo con ese informe comprueba sobre todo el estimador de longitud; no constituye una medición independiente de toda la cadena. En el caso 3, además, los modelos analizaron cantidades distintas de videos.</div>
+  <p class="section-label">Cuatro casos, en breve</p>
+  <div class="case-grid" aria-label="Resumen por caso">
+    <div class="case-tile"><div class="tile-head"><strong>Caso 1</strong><span class="tiny muted">11 videos</span></div><p class="small">Sol reproduce dos grupos con los centros publicados; Luna no valida ninguno con centro libre.</p><span class="tile-outcome">Revisión de trazas y centro condicionan el resultado.</span></div>
+    <div class="case-tile"><div class="tile-head"><strong>Caso 2</strong><span class="tiny muted">21 videos</span></div><p class="small">Dos estimadores de longitud dan valores centrales de Q/m cercanos.</p><span class="tile-outcome">6,65 frente a 6,5 × 10⁻⁴ C/kg.</span></div>
+    <div class="case-tile"><div class="tile-head"><strong>Caso 3</strong><span class="tiny muted">11 frente a 21 videos</span></div><p class="small">Ninguno alcanza un ajuste aceptable para informar Q/m final.</p><span class="tile-outcome">La selección automática de trazas es una causa plausible.</span></div>
+    <div class="case-tile"><div class="tile-head"><strong>Caso 4</strong><span class="tiny muted">Preguntas distintas</span></div><p class="small">Sol estima dos grupos geométricos; Luna busca evidencia espectral en 21 videos.</p><span class="tile-outcome">Luna acepta 0 de 1.036 candidatos espectrales.</span></div>
+  </div>
+  <figure class="figure" style="margin-top:14px">
+    <svg viewBox="0 0 660 96" role="img" aria-labelledby="workflowtitle workflowdesc">
+      <title id="workflowtitle">Paso humano del método experimental original</title><desc id="workflowdesc">El programa propone trazas; una persona acepta, descarta o corrige cada cuadro; después se calcula el centro y se estima Q sobre m.</desc>
+      <rect x="5" y="20" width="180" height="50" rx="8" fill="#eaf4fb"/><rect x="240" y="20" width="180" height="50" rx="8" fill="#e9f5ef"/><rect x="475" y="20" width="180" height="50" rx="8" fill="#f3edf9"/>
+      <text x="95" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#1769aa">Detección automática</text><text x="95" y="57" text-anchor="middle" font-size="10" fill="#17243a">propone trazas</text>
+      <text x="330" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#24745e">Decisión humana</text><text x="330" y="57" text-anchor="middle" font-size="10" fill="#17243a">acepta · descarta · corrige</text>
+      <text x="565" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#7951a8">Ajuste físico</text><text x="565" y="57" text-anchor="middle" font-size="10" fill="#17243a">calcula centro y Q/m</text>
+      <path d="M190 45 H230 M425 45 H465" fill="none" stroke="#8e9aac" stroke-width="2"/><path d="M230 45 l-7 -5 v10 z M465 45 l-7 -5 v10 z" fill="#8e9aac"/>
+    </svg>
+    <figcaption>Figura 1. En el método semiautomático original, la persona revisa las trazas; el centro se calcula después. Los análisis automáticos omiten esta selección cuadro por cuadro.</figcaption>
+  </figure>
+  <div class="callout amber small" style="margin-top:13px"><strong>Alcance.</strong> La ausencia de revisión humana puede dejar reflejos, fragmentos y fusiones que alteran longitud y centro. No explica por sí sola todos los descartes: también importan la cobertura angular, la estabilidad geométrica y, en el caso 4 de Luna, la resolución temporal. Los valores de Sol en los casos 1 y 4 usan centros tomados del informe.</div>
   <div class="folio"><span>Comparación basada en los archivos del repositorio · 28 sep 2026</span><span>1 / 4</span></div>
 </section>
 
@@ -98,7 +103,7 @@
     <div class="case-head"><span class="case-num">1</span><h2>Reanálisis de 11 videos</h2></div>
     <div class="compare">
       <div class="model-card sol"><span class="tag sol">Sol</span><p class="small" style="margin-top:7px">Muestrea 40 cuadros por video, mide una línea media cuadrática y usa la mediana de <em>c = L/R</em>. Con el <strong>centro publicado</strong>, dos videos se asocian de forma plausible con los grupos del informe: <strong>8,78 ± 1,07</strong> y <strong>8,80 ± 1,16</strong> × 10⁻⁴ C/kg. La asociación del segundo video tiene apoyo visual directo; la de ambos no es demostrable por identificadores. <a href="caso-1-codex-reanalysis%20gpt-5.6-sol%20default/REPORTE_REANALISIS.md">Fuente [1]</a>.</p></div>
-      <div class="model-card luna"><span class="tag luna">Luna</span><p class="small" style="margin-top:7px">Usa esqueletización y ajusta <em>centro y c</em> simultáneamente. Los centros y las pendientes resultan inestables y los ajustes tienen baja linealidad: <strong>ningún video pasa todos los controles</strong>. La tabla contiene diagnósticos, pero no una medición final. <a href="caso%201%20GPT-6-Luna%20medium/informe_reanalisis.html">Fuente [2]</a>.</p></div>
+      <div class="model-card luna"><span class="tag luna">Luna</span><p class="small" style="margin-top:7px">Usa esqueletización y ajusta <em>centro y c</em> simultáneamente, sin la corrección humana de trazas del método original. Los centros y las pendientes resultan inestables: <strong>ningún video pasa todos los controles</strong>. La tabla contiene diagnósticos, pero no una medición final. <a href="caso%201%20GPT-6-Luna%20medium/informe_reanalisis.html">Fuente [2]</a>.</p></div>
     </div>
     <figure class="figure">
       <svg viewBox="0 0 660 125" role="img" aria-labelledby="case1figtitle case1figdesc">
@@ -139,15 +144,15 @@
   <div class="case-block">
     <div class="case-head"><span class="case-num">3</span><h2>Reanálisis exploratorio</h2></div>
     <div class="compare">
-      <div class="model-card sol"><span class="tag sol">Sol</span><p class="small" style="margin-top:7px">Sobre <strong>11 videos</strong>, detecta 519 trazas y ajusta <em>L = cR</em> con centro libre. Ningún video cumple a la vez cobertura angular, estabilidad del centro y calidad del ajuste. Los Q/m por video son diagnósticos. <a href="caso%203%20gpt-5.6-sol%20default/README.md">Fuente [5]</a>.</p></div>
-      <div class="model-card luna"><span class="tag luna">Luna</span><p class="small" style="margin-top:7px">Sobre <strong>21 videos</strong>, mide la longitud por esqueleto Zhang–Suen y ajusta centro y <em>c</em> juntos. Ningún video supera simultáneamente los controles de trazas, estabilidad del centro y límite físico. <a href="caso%203%20GPT-6-Luna%20medium/README.md">Fuente [6]</a>.</p></div>
+      <div class="model-card sol"><span class="tag sol">Sol</span><p class="small" style="margin-top:7px">Sobre <strong>11 videos</strong>, detecta 519 trazas y ajusta <em>L = cR</em> con centro libre. Aplica reglas automáticas sin aceptación o corrección humana por cuadro. Ningún video cumple a la vez cobertura angular, estabilidad del centro y calidad del ajuste. <a href="caso%203%20gpt-5.6-sol%20default/README.md">Fuente [5]</a>.</p></div>
+      <div class="model-card luna"><span class="tag luna">Luna</span><p class="small" style="margin-top:7px">Sobre <strong>21 videos</strong>, mide la longitud por esqueleto Zhang–Suen y ajusta centro y <em>c</em> juntos. También sustituye la revisión humana por filtros automáticos. Ningún video supera simultáneamente los controles de trazas, estabilidad del centro y límite físico. <a href="caso%203%20GPT-6-Luna%20medium/README.md">Fuente [6]</a>.</p></div>
     </div>
     <figure class="figure">
       <svg viewBox="0 0 660 86" role="img" aria-labelledby="case3figtitle case3figdesc">
         <title id="case3figtitle">Caso 3: videos procesados y videos aptos para Q/m final</title><desc id="case3figdesc">Sol procesó 11 videos y Luna 21. Ninguno de los dos análisis aceptó videos para una estimación final de Q sobre m.</desc>
         <g font-size="11" fill="#17243a"><text x="5" y="29">Sol</text><text x="5" y="58">Luna</text></g><g fill="#e8eef5"><rect x="70" y="15" width="467" height="18" rx="5"/><rect x="70" y="44" width="467" height="18" rx="5"/></g><rect x="70" y="15" width="244" height="18" rx="5" fill="#1769aa"/><rect x="70" y="44" width="467" height="18" rx="5" fill="#7951a8"/><g fill="#17243a" font-size="11"><text x="546" y="29">11 / 0 aptos</text><text x="546" y="58">21 / 0 aptos</text></g><text x="70" y="82" font-size="10" fill="#58677d">Longitud de barra = videos procesados; número a la derecha = videos / aptos.</text>
       </svg>
-      <figcaption>Figura 4. Ambos rechazan un Q/m final, pero trabajaron con conjuntos de distinto tamaño. Sus tasas de detección o distribución de <em>c</em> no deben cotejarse video a video.</figcaption>
+      <figcaption>Figura 4. Ambos rechazan un Q/m final y omiten la revisión humana de trazas, pero trabajaron con conjuntos de distinto tamaño. Sus distribuciones de <em>c</em> no deben cotejarse video a video.</figcaption>
     </figure>
   </div>
   <div class="case-block">
@@ -185,15 +190,15 @@
     <div>
       <h3>Límites que deciden el resultado</h3>
       <ul class="note-list small">
-        <li><strong>Centro de la trampa:</strong> al ajustarlo libremente con trazas de abanico angular incompleto, puede ser inestable; esto afecta a <em>R</em> y a <em>Q/m</em>.</li>
+        <li><strong>Selección de trazas y centro:</strong> reflejos, fusiones y fragmentos sin corregir alteran <em>L</em>; un abanico angular incompleto también vuelve inestable el centro y afecta <em>R</em>.</li>
         <li><strong>Videos y exposición:</strong> la cadencia observada ronda 21,45 fps, mientras la excitación supuesta es 50 Hz. La frecuencia RF no se mide directamente con esos cuadros.</li>
         <li><strong>Dependencia del modelo:</strong> tensión efectiva, geometría de electrodos, radio y proyección 2D trasladan errores sistemáticos a la conversión física.</li>
       </ul>
     </div>
   </div>
-  <div class="callout" style="margin:14px 0 15px"><strong>Conclusión.</strong> El caso 2 ofrece la comparación numérica más directa entre modelos y sus estimaciones centrales concuerdan dentro de los límites publicados. Los casos 1 y 4 muestran sensibilidad a cómo se fija el centro y a qué magnitud se intenta medir. El caso 3 no produce una estimación final en ninguno de los dos análisis.</div>
-  <h3>Cómo avanzar hacia una medición más firme</h3>
-  <p class="small">Registrar amplitud RF y tiempo de exposición; medir el nulo de RF y la geometría de la trampa por una vía independiente; identificar partículas repetidas entre cuadros; y repetir ambos métodos sobre el mismo conjunto de videos, con criterios de calidad acordados antes del procesamiento. Estas acciones atacarían los límites que más influyen en las conclusiones.</p>
+  <div class="callout" style="margin:14px 0 15px"><strong>Conclusión.</strong> El caso 2 ofrece la comparación numérica más directa. En los casos 1 y 3, omitir la aceptación, el descarte y la corrección humana de trazas es una causa plausible de los fallos automáticos, junto con la inestabilidad geométrica. En los casos 1 y 4, Sol usa centros publicados; Luna aplica controles o una prueba dinámica distintos.</div>
+  <h3>La revisión humana no fija el centro</h3>
+  <p class="small">En el flujo original, una persona revisa las trazas propuestas en cada cuadro y el centro se calcula después con las trazas elegidas. Sin una comparación sobre los mismos cuadros revisados y sin revisar los falsos positivos, no se puede separar cuánto del fallo proviene de esa etapa ausente y cuánto de una cobertura angular insuficiente. El rechazo espectral del caso 4 de Luna tiene además un límite de adquisición: la cámara registra ~21,46 cuadros/s frente a una RF supuesta de 50 Hz.</p>
   <p class="section-label">Fuentes primarias del repositorio</p>
   <ol class="source-list">
     <li>[1] <a href="caso-1-codex-reanalysis%20gpt-5.6-sol%20default/REPORTE_REANALISIS.md">Caso 1 · reporte Sol</a> y <a href="caso-1-codex-reanalysis%20gpt-5.6-sol%20default/resultados_por_video.csv">datos por video</a>.</li>
