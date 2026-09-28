@@ -164,11 +164,6 @@ El reporte completo, el código reproducible, los resultados agregados y las
 figuras están en
 [`agent-results/caso-2-codex-analysis/`](agent-results/caso-2-codex-analysis/REPORT.md).
 
-### Caso 2 — GPT-6-Luna medium
-
-El reporte análogo, con los resultados del modelo eficiente PCA de momentos de
-imagen, está en
-[`agent-results/caso 2 GPT-6-Luna medium/`](agent-results/caso%202%20GPT-6-Luna%20medium/informe_reanalisis.html).
 
 El análisis obtiene `q = 0,200` (IC 95 %: 0,193–0,235) y, bajo un modelo
 cuadrupolar ideal, `|Q|/m = 6,65×10⁻⁴ C kg⁻¹`. La frecuencia secular de
@@ -201,18 +196,4 @@ análisis también discute por qué la dispersión entre trazas no puede atribui
 de forma concluyente a heterogeneidad física sin seguimiento de partículas y
 un modelo jerárquico.
 
-## Caso 2.2: modelo eficiente basado en momentos de imagen
 
-Como extensión conceptual del Caso 2, se incorporó un análisis que utiliza los
-mismos videos y el mismo flujo autónomo, pero reemplaza el estimador geométrico
-por un modelo PCA basado en momentos de imagen. Es más eficiente
-computacionalmente que el método área–perímetro: usa una sola segmentación y
-no calcula perímetros ni múltiples umbrales.
-
-El resultado exploratorio es `Q/m = (6,5 ± 1,9)×10⁻⁴ C kg⁻¹`. La incertidumbre
-es mayor porque la longitud PCA pierde información sobre la curvatura de las
-trazas. “Más eficiente” se refiere al costo computacional y a la simplicidad,
-no a una precisión automáticamente superior.
-
-El reporte, el código, las tablas y las figuras están en
-[`agent-results/caso-2.2-codex-efficient-pca-analysis/`](agent-results/caso-2.2-codex-efficient-pca-analysis/REPORTE_MODELO_EFICIENTE.md).
