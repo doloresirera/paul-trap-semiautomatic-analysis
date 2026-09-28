@@ -1,0 +1,12 @@
+{
+  "threshold_red": 20,
+  "frame_step": 30,
+  "area_px": [
+    18,
+    2200
+  ],
+  "elongation_min": 2.0,
+  "V_AC_V": 1175,
+  "frequency_Hz": 50,
+  "r0_m": 0.0089
+}
